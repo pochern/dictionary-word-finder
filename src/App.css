@@ -1,3 +1,7 @@
+.App {
+  margin: 3em;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -6,6 +10,7 @@
 
 .App-header {
   text-align: center;
+  margin-bottom: 3em;
 }
 
 .App-link {
