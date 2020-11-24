@@ -36,5 +36,24 @@ def get_data():
     return jsonify(printing)
 
 
+@app.route('/data.json', methods=['POST'])
+def add_data():
+    json_data = request.get_json()
+    request_definition = json_data['definition']
+    request_example = json_data['example']
+    request_image_url = json_data['image_url']
+    request_word_type = json_data['word_type']
+    request_word = json_data['word']
+    aDefinition = Definition(definition=request_definition,
+                             example=request_example,
+                             image_url=request_image_url,
+                             word_type=request_word_type,
+                             word=request_word)
+    db.session.add(aDefinition)
+    db.session.commit()
+
+    return jsonify(request.form)
+
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8080)
