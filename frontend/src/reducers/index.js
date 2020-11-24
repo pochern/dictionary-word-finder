@@ -1,14 +1,14 @@
 import produce from 'immer'
 import {
   ADD_DEFINITION,
-  REMOVE_FROM_FAVORITES,
-  GET_FAVORITES
-} from '../actions'
+  FAVORITES_RECEIVED,
+  REMOVE_DEFINITION
+} from '../constants'
 
 const initialState = { definitions: [] }
 
 function favorites (state = initialState, action) {
-  const { data, definition, word } = action
+  const { data, definition, id, word } = action
 
   switch (action.type) {
     case ADD_DEFINITION:
@@ -21,12 +21,12 @@ function favorites (state = initialState, action) {
           word_type: definition.type
         })
       })
-    case REMOVE_FROM_FAVORITES:
+    case REMOVE_DEFINITION:
       return {
         ...state,
-        definitions: state.definitions.filter((elem) => elem.definition.definition !== definition.definition)
+        definitions: state.definitions.filter((elem) => elem.id !== id)
       }
-    case GET_FAVORITES:
+    case FAVORITES_RECEIVED:
       return {
         ...state,
         definitions: data
