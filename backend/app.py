@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -21,7 +21,7 @@ class Definition(db.Model):
 @app.route('/data.json', methods=['GET'])
 def get_data():
     favorites = Definition.query.all()
-    
+
     printing = {
         'definitions': [{
             'id': favorite.id,
@@ -32,7 +32,7 @@ def get_data():
             'word': favorite.word,
         } for favorite in favorites],
     }
-    
+
     return jsonify(printing)
 
 
@@ -50,6 +50,16 @@ def add_data():
                              word_type=request_word_type,
                              word=request_word)
     db.session.add(aDefinition)
+    db.session.commit()
+
+    return jsonify(request.form)
+
+
+@app.route('/data.json', methods=['DELETE'])
+def delete_data():
+    json_data = request.get_json()
+    request_id = json_data['id']
+    Definition.query.filter(Definition.id == request_id).delete()
     db.session.commit()
 
     return jsonify(request.form)
