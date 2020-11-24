@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import PropTypes from 'prop-types'
+import { sentenceCase } from '../utils/helpers'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,9 +42,9 @@ function WordList ({ word, definitions, onFavorite, onRemove }) {
         <Grid key={index} item xs={6} sm={3}>
           <Paper className={classes.paper}>
             <Grid container spacing={2}>
-              {(item.image_url || item.definition.image_url) &&
+              {(item.image_url) &&
                 <Grid item>
-                  <img className={classes.img} alt="complex" src={item.image_url || item.definition.image_url} />
+                  <img className={classes.img} alt="complex" src={item.image_url} />
                 </Grid>
               }
               <Grid item xs={12} sm container>
@@ -53,14 +54,14 @@ function WordList ({ word, definitions, onFavorite, onRemove }) {
                       {word || item.word}
                     </Typography>
                     <Typography variant="subtitle1">
-                      <em>{item.word_type || item.definition.type}</em>
+                      <em>{item.type || item.word_type}</em>
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
-                      {typeof item.definition === 'string' ? item.definition : item.definition.definition}
+                      {item.definition}
                     </Typography>
-                    {(item.example || item.definition.example) &&
+                    {(item.example) &&
                       <Typography variant="body2" color="textSecondary">
-                        "{item.example || item.definition.example}"
+                        "{sentenceCase(item.example)}"
                       </Typography>
                     }
                   </Grid>
