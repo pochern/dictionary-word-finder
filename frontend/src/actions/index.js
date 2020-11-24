@@ -1,11 +1,10 @@
 export const ADD_DEFINITION = 'ADD_DEFINITION'
-export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES'
+export const REMOVE_DEFINITION = 'REMOVE_DEFINITION'
 export const GET_FAVORITES = 'GET_FAVORITES'
 
-export function getFavorites (data) {
+export function getFavorites () {
   return {
-    type: GET_FAVORITES,
-    data
+    type: GET_FAVORITES
   }
 }
 
@@ -17,10 +16,9 @@ export function addDefinition ({ definition, word }) {
   }
 }
 
-export function removeFromFavorites ({ definition, word }) {
+export function removeDefinition ({ id }) {
   return {
-    type: REMOVE_FROM_FAVORITES,
-    definition,
-    word
+    type: REMOVE_DEFINITION,
+    id
   }
 }
