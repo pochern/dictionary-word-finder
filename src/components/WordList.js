@@ -30,7 +30,6 @@ WordList.propTypes = {
 }
 
 function WordList ({ word, definitions, onFavorite, onRemove }) {
-  console.log('REMOVED', definitions)
   const classes = useStyles()
   if (definitions.length === 0) {
     return <p>No results.</p>
