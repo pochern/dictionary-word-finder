@@ -12,10 +12,17 @@ pip install flask_sqlalchemy
 ### Initialize database
 ```
 cd backend
-python
-from app import Definition
-from app import db
-db.create_all()
+python initialize_db.py
+```
+
+### Create .env file in frontend folder to store the Owlbot Dictionary API key
+- Visit https://owlbot.info/ to get a token (on the bottom of the page)
+```
+cd frontend
+```
+Inside your .env file, enter:
+```
+REACT_APP_API_KEY=my-secret-api-key
 ```
 
 ### Run the client on your machine
