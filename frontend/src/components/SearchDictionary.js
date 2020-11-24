@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { fade, makeStyles } from '@material-ui/core/styles'
-import { fetchDefinitions, fetchFavorites, postFavorite } from '../utils/api'
-import { addDefinition, getFavorites } from '../actions'
+import { fetchDefinitions } from '../utils/api'
+import { addDefinition } from '../actions'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import SearchIcon from '@material-ui/icons/Search'
@@ -74,14 +74,6 @@ function SearchDictionary () {
 
   const addToFavorites = (definition) => {
     dispatch(addDefinition({ definition, word }))
-    // Add to db
-    postFavorite(definition, word).then(
-      // Refresh state with updated db
-      fetchFavorites()
-        .then(data => {
-          data.definitions && dispatch(getFavorites(data.definitions))
-        })
-    )
   }
 
   return (
