@@ -63,12 +63,11 @@ function SearchDictionary () {
     }
 
     setLoadingResults(true)
-    console.log('INPUT VALUE', inputValue)
 
     fetchDefinitions(inputValue)
       .then(data => {
         data.definitions ? setDefinitions(data.definitions) : setDefinitions([])
-        data.word ? setWord(data.word) : setWord(inputValue)
+        data.word && setWord(data.word.toLowerCase())
         setLoadingResults(false)
       })
   }
