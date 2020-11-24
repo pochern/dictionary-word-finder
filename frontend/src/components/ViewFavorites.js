@@ -27,7 +27,7 @@ function ViewFavorites () {
 
   const applyFilter = () => {
     if (type !== '') {
-      setFilteredDefinitions(definitions.filter((elem) => type === elem.definition.type))
+      setFilteredDefinitions(definitions.filter((elem) => type === elem.word_type))
     } else {
       setFilteredDefinitions(definitions)
     }
