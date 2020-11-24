@@ -8,7 +8,10 @@ db = SQLAlchemy(app)
 
 class Definition(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    definition = db.Column(db.String(80), unique=False, nullable=False)
+    definition = db.Column(db.String(1000), unique=False, nullable=False)
+    example = db.Column(db.String(1000), unique=False, nullable=False)
+    image_url = db.Column(db.String(2000), unique=False, nullable=False)
+    word_type = db.Column(db.String(80), unique=False, nullable=False)
     word = db.Column(db.String(80), unique=False, nullable=False)
 
     def __repr__(self):
@@ -23,6 +26,9 @@ def get_data():
         'definitions': [{
             'id': favorite.id,
             'definition': favorite.definition,
+            'example': favorite.example,
+            'image_url': favorite.image_url,
+            'word_type': favorite.word_type,
             'word': favorite.word,
         } for favorite in favorites],
     }
