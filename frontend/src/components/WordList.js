@@ -71,7 +71,7 @@ function WordList ({ word, definitions, onFavorite, onRemove }) {
                       </Button>
                     }
                     {onRemove &&
-                      <Button color='primary' onClick={() => onRemove(item.definition, item.word)}>
+                      <Button color='primary' onClick={() => onRemove(item.id)}>
                         Remove from favorites
                       </Button>
                     }
