@@ -67,7 +67,7 @@ function SearchDictionary () {
     fetchDefinitions(inputValue)
       .then(data => {
         data.definitions ? setDefinitions(data.definitions) : setDefinitions([])
-        data.word && setWord(data.word.toLowerCase())
+        data.word ? setWord(data.word.toLowerCase()) : setWord(inputValue)
         setLoadingResults(false)
       })
   }
