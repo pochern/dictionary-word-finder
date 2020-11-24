@@ -1,6 +1,8 @@
-export const ADD_DEFINITION = 'ADD_DEFINITION'
-export const REMOVE_DEFINITION = 'REMOVE_DEFINITION'
-export const GET_FAVORITES = 'GET_FAVORITES'
+import {
+  ADD_DEFINITION,
+  REMOVE_DEFINITION,
+  GET_FAVORITES
+} from '../constants'
 
 export function getFavorites () {
   return {
