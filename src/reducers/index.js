@@ -20,7 +20,7 @@ function favorites (state = initialState, action) {
     case REMOVE_FROM_FAVORITES:
       return {
         ...state,
-        definitions: [state.definitions.filter((elem) => elem.definition.definition !== definition.definition)]
+        definitions: state.definitions.filter((elem) => elem.definition.definition !== definition.definition)
       }
     default:
       return state
