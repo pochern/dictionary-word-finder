@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchFavorites } from '../utils/api'
 import { getFavorites } from '../actions'
 import Button from '@material-ui/core/Button'
 import ButtonGroup from '@material-ui/core/ButtonGroup'
@@ -13,12 +12,9 @@ function App () {
   const buttons = ['Search Dictionary', 'View Favorites']
   const dispatch = useDispatch()
 
-  // Fetch favorites from db, then place in state
+  // Get favorites on initial app render
   useEffect(() => {
-    fetchFavorites()
-      .then(data => {
-        data.definitions && dispatch(getFavorites(data.definitions))
-      })
+    dispatch(getFavorites())
   }, [])
 
   const setButtonActive = (name) => {
