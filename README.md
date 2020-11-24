@@ -23,7 +23,7 @@ python initialize_db.py
 ```
 cd frontend
 ```
-Inside your .env file, enter:
+Create .env file. Inside your .env file, enter:
 ```
 REACT_APP_API_KEY=my-secret-api-key
 ```
