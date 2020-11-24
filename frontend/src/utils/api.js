@@ -1,3 +1,4 @@
+import { sentenceCase } from './helpers'
 const APP_KEY = process.env.REACT_APP_APP_KEY
 
 // owlbot API
@@ -35,7 +36,7 @@ export function postFavorite (definition, word) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ definition: definition.definition, example: definition.example || '', image_url: definition.image_url || '', word: word, word_type: definition.type })
+    body: JSON.stringify({ definition: definition.definition, example: sentenceCase(definition.example) || '', image_url: definition.image_url || '', word: word, word_type: definition.type })
   }
 
   return fetch(url, params)
