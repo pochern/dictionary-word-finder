@@ -13,6 +13,7 @@ function App () {
   const buttons = ['Search Dictionary', 'View Favorites']
   const dispatch = useDispatch()
 
+  // Fetch favorites from db, then place in state
   useEffect(() => {
     fetchFavorites()
       .then(data => {
