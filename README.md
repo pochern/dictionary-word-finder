@@ -2,6 +2,9 @@
 An application that allows the user to search a dictionary for their favorite words.
 
 ## To set up locally:
+```
+cd dictionary-word-finder
+```
 ### Install flask and flask_sqlalchemy in backend folder
 ```
 cd backend
