@@ -72,10 +72,6 @@ function SearchDictionary () {
       })
   }
 
-  const addToFavorites = (definition) => {
-    dispatch(addDefinition({ definition, word }))
-  }
-
   return (
     <div>
       <div style={{ display: 'flex', marginBottom: '2em' }}>
@@ -113,7 +109,9 @@ function SearchDictionary () {
                 <WordList
                   word={word}
                   definitions={definitions}
-                  onFavorite={definition => addToFavorites(definition)}
+                  onFavorite={(definition) => {
+                    dispatch(addDefinition({ definition, word }))
+                  }}
                 />)}
             </div>}
       </div>
