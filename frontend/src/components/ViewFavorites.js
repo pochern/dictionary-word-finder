@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { removeFromFavorites } from '../actions'
+import { removeDefinition } from '../actions'
 import InputLabel from '@material-ui/core/InputLabel'
 import FormControl from '@material-ui/core/FormControl'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -62,8 +62,8 @@ function ViewFavorites () {
         </Typography>
         <WordList
           definitions={filteredDefinitions}
-          onRemove={(definition, word) => {
-            dispatch(removeFromFavorites({ definition, word }))
+          onRemove={(id) => {
+            dispatch(removeDefinition({ id }))
           }}
         />
       </div>
