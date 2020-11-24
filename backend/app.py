@@ -52,7 +52,7 @@ def add_data():
     db.session.add(aDefinition)
     db.session.commit()
 
-    return jsonify(request.form)
+    return jsonify(json_data)
 
 
 @app.route('/data.json', methods=['DELETE'])
@@ -62,7 +62,7 @@ def delete_data():
     Definition.query.filter(Definition.id == request_id).delete()
     db.session.commit()
 
-    return jsonify(request.form)
+    return jsonify(json_data)
 
 
 if __name__ == '__main__':
