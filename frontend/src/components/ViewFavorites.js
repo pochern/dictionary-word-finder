@@ -15,12 +15,12 @@ function ViewFavorites () {
   const [type, setType] = useState('')
   const dispatch = useDispatch()
 
-  // Applies filter after definition is removed
+  // Apply filter after definition is removed
   useEffect(() => {
     applyFilter()
   }, [definitions])
 
-  // Applies filter after type is selected
+  // Apply filter after type is selected
   useEffect(() => {
     applyFilter()
   }, [type])
