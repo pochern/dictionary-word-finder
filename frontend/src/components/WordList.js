@@ -53,7 +53,7 @@ function WordList ({ word, definitions, onFavorite, onRemove }) {
                       {word || item.word}
                     </Typography>
                     <Typography variant="subtitle1">
-                      <em>{item.type || item.definition.type}</em>
+                      <em>{item.word_type || item.definition.type}</em>
                     </Typography>
                     <Typography variant="subtitle1" gutterBottom>
                       {typeof item.definition === 'string' ? item.definition : item.definition.definition}
