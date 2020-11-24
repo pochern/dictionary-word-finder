@@ -1,0 +1,7 @@
+// Actions
+export const ADD_DEFINITION = 'ADD_DEFINITION'
+export const REMOVE_DEFINITION = 'REMOVE_DEFINITION'
+export const GET_FAVORITES = 'GET_FAVORITES'
+
+// Reducers
+export const FAVORITES_RECEIVED = 'FAVORITES_RECEIVED'
