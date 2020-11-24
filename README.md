@@ -9,9 +9,19 @@ pip install flask
 pip install flask_sqlalchemy
 ```
 
+### Initialize database
+```
+cd backend
+python
+from app import Definition
+from app import db
+db.create_all()
+```
+
 ### Run the client on your machine
 ```
 cd frontend
+npm install
 npm start
 ```
 
@@ -19,13 +29,4 @@ npm start
 ```
 cd backend
 python app.py
-```
-
-### Create the Definition database
-```
-cd backend
-python
-from app import Definition
-from app import db
-db.create_all()
 ```
