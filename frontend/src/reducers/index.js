@@ -8,14 +8,17 @@ import {
 const initialState = { definitions: [] }
 
 function favorites (state = initialState, action) {
-  const { definition, word, data } = action
+  const { data, definition, word } = action
 
   switch (action.type) {
     case ADD_DEFINITION:
       return produce(state, draft => {
         draft.definitions.push({
-          definition: definition,
-          word: word
+          definition: definition.definition,
+          example: definition.example || '',
+          image_url: definition.image_url || '',
+          word: word,
+          word_type: definition.type
         })
       })
     case REMOVE_FROM_FAVORITES:
